@@ -2,6 +2,11 @@
 # generated from docker_images/create_ros_image.Dockerfile.em
 FROM osrf/ros:noetic-desktop-full-focal
 
+# Install perception packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ros-noetic-perception=1.5.0-1* \
+    && rm -rf /var/lib/apt/lists/*
+
 # install common packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
     wget curl git python3-catkin-tools python3-osrf-pycommon \
