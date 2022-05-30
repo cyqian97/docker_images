@@ -42,6 +42,7 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 # RUN mkdir /source
 
 # Overwrite the entry point to zsh
+WORKDIR /
 COPY ./ros_entrypoint.zsh /
 ENTRYPOINT ["/ros_entrypoint.zsh"]
 CMD ["zsh"]
